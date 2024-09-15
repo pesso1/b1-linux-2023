@@ -1,6 +1,6 @@
 1. Analyse du service
 
-On va, dans cette première partie, analyser le service SSH qui est en cours d'exécution.
+● On va, dans cette première partie, analyser le service SSH qui est en cours d'exécution.
 🌞 S'assurer que le service sshd est démarré
 
 ```bash
@@ -24,11 +24,11 @@ Sep 10 15:01:32 localhost.localdomain systemd[1]: Started OpenSSH server daemon.
 Sep 10 15:05:15 efrei-xmg4agau1.campus.villejuif sshd[1301]: Accepted password for pesso from 10.3.1.10 port 65011 ssh2
 Sep 10 15:05:16 efrei-xmg4agau1.campus.villejuif sshd[1301]: pam_unix(sshd:session): session opened for user pesso
 ```
-avec une commande systemctl status
+● avec une commande systemctl status
 
 🌞 Analyser les processus liés au service SSH
 
-afficher les processus liés au service sshd
+● afficher les processus liés au service sshd
 
 ``` bash
 [pesso@efrei-xmg4agau1 ~]$ sudo systemctl list-units -t service -a | grep sshd
@@ -56,7 +56,7 @@ LISTEN   0        128              0.0.0.0:22              0.0.0.0:*       users
 🌞 Consulter les logs du service SSH
 
 
-donnez une commande journalctl qui permet de consulter les logs du service SSH
+● donnez une commande journalctl qui permet de consulter les logs du service SSH
 il est dans le dossier /var/log
 
 ``` bash
@@ -69,7 +69,7 @@ Sep 10 15:05:15 efrei-xmg4agau1.campus.villejuif sshd[1301]: Accepted password f
 Sep 10 15:05:16 efrei-xmg4agau1.campus.villejuif sshd[1301]: pam_unix(sshd:session): session opened for user pesso(uid=1000) by pesso(uid=0)
 [pesso@efrei-xmg4agau1 ~]$
 ```
-ou
+● ou
 
 ```bash
 [pesso@efrei-xmg4agau1 log]$ sudo cat /var/log/secure | grep ssh
@@ -101,7 +101,7 @@ Sep 10 15:05:16 efrei-xmg4agau1 sshd[1301]: pam_unix(sshd:session): session open
 [pesso@efrei-xmg4agau1 log]$
 ```
 
-utilisez une commande tail pour visualiser les 10 dernière lignes de ce fichier
+● utilisez une commande tail pour visualiser les 10 dernière lignes de ce fichier
 
 ``` bash
 [pesso@efrei-xmg4agau1 log]$ sudo tail -n 10 /var/log/secure
@@ -128,7 +128,7 @@ Sep 10 16:44:29 efrei-xmg4agau1 sudo[1600]: pam_unix(sudo:session): session clos
 
 🌞 Modifier le fichier de conf
 
-changez le port d'écoute du serveur SSH pour qu'il écoute sur ce numéro de port
+● changez le port d'écoute du serveur SSH pour qu'il écoute sur ce numéro de port
 
 il faut modifier le fichier avec nano ou vim par exemple
 dans le compte-rendu je veux un cat du fichier de conf
